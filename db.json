@@ -5,6 +5,13 @@
 		"MobileNo": "7008014424",
 		"Username": "admin",
 		"Password": "admin"
+	},
+    {
+		"Id": 2,
+		"Name": "Sanjay Kumar",
+		"MobileNo": "7008015654",
+		"Username": "admin12",
+		"Password": "admin12"
 	}],
 	"patients": [{
 		"id": 1,
