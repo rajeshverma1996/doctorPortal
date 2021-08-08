@@ -1,9 +1,8 @@
 {
-  "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
+  "doctors": [
+    { "Id": 1, "Name": "Rajesh Kumar", "MobileNo": "7008014424","Username":"admin","Password":"admin" }
   ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
+  "patients": [
+    { "id": 1, "Name": "Sonu Kumar", "Gender": "M","Age":25,"Cause" :"Fever"}
   ],
-  "profile": { "name": "typicode" }
-}
+  
