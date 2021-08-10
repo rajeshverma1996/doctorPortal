@@ -1,23 +1,93 @@
 {
-	"doctors": [{
-		"Id": 1,
-		"Name": "Rajesh Kumar",
-		"MobileNo": "7008014424",
-		"Username": "admin",
-		"Password": "admin"
-	},
+  "doctors": [
     {
-		"Id": 2,
-		"Name": "Sanjay Kumar",
-		"MobileNo": "7008015654",
-		"Username": "admin12",
-		"Password": "admin12"
-	}],
-	"patients": [{
-		"id": 1,
-		"Name": "Sonu Kumar",
-		"Gender": "M",
-		"Age": 25,
-		"Cause": "Fever"
-	}]
+      "Name": "Rajesh",
+      "Username": "Rajesh96",
+      "Password": "Rajesh@96",
+      "MobileNo": "7008014424",
+      "id": 1
+    },
+    {
+      "Name": "Pankaj Kumar",
+      "Username": "Pankaj123",
+      "Password": "Pankaj@123",
+      "MobileNo": "7854521212",
+      "id": 2
+    },
+    {
+      "Name": "Pankaj Kumar",
+      "MobileNo": "7008014424",
+      "Username": "Himanshi",
+      "Password": "Rajesh12#$",
+      "id": 3
+    },
+    {
+      "Name": "Rohit Kumar",
+      "MobileNo": "8545458454",
+      "Username": "Rohit123",
+      "Password": "Rohit@123",
+      "id": 4
+    },
+    {
+      "Name": "Sudhir Singh",
+      "MobileNo": "9878776876",
+      "Username": "Sudhir123",
+      "Password": "Sudhir@123",
+      "id": 5
+    },
+    {
+      "Name": "Prabhat Kumar",
+      "MobileNo": "8754574541",
+      "Username": "Prabhat123",
+      "Password": "Prabhat@123",
+      "id": 6
+    },
+    {
+      "Name": "Sankar Kumar",
+      "MobileNo": "8545454854",
+      "Username": "Sankar123",
+      "Password": "Sankar@123",
+      "id": 7
+    },
+    {
+      "Name": "Siddhart",
+      "MobileNo": "8954562121",
+      "Username": "Sidhart123",
+      "Password": "Sidhart@123",
+      "id": 8
+    },
+    {
+      "Name": " Sohan",
+      "MobileNo": "8754512111",
+      "Username": "Sohan12345",
+      "Password": "Sohan@1234",
+      "id": 9
+    }
+  ],
+  "patients": [
+    {
+      "id": 1,
+      "Name": "Rajnish Kumar",
+      "Gender": "male",
+      "Age": "24",
+      "Symptom": "Fever",
+      "MobileNo": "7008014424"
+    },
+    {
+      "Gender": "male",
+      "Name": "Kulwant Kumar",
+      "MobileNo": "8578458457",
+      "Age": "26",
+      "Symptom": "Fever",
+      "id": 2
+    },
+    {
+      "Gender": "male",
+      "Name": "Suraj Kumar",
+      "MobileNo": "7854521212",
+      "Age": "26",
+      "Symptom": "Caugh",
+      "id": 3
+    }
+  ]
 }

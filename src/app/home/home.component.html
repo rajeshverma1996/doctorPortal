@@ -1,24 +1,64 @@
-<h1 class="text-center">Home Page</h1>
-<div class="form-container">
+<h1 class="text-center">Sign up</h1>
+<div class="form-container"  *ngIf="!IsAdded">
   <form [formGroup]="form" novalidate>
     <div class="mb-3">
       <label for="name" class="form-label">Name</label>
       <input type="text" class="form-control" id="name" formControlName="Name" [(ngModel)]="model.Name">
+      <div class='error errors err-msg' *ngIf="form.controls['Name'].touched">
+        <div *ngIf="form.controls['Name'].errors?.required">Name is required.
+        </div>
 
+    </div>
     </div>
     <div class="mb-3">
       <label for="MobileNo" class="form-label">Mobile No</label>
-      <input type="number" class="form-control" id="MobileNo" formControlName="Mobile" [(ngModel)]="model.MobileNo">
+      <input type="text" class="form-control" maxlength="10" id="MobileNo" formControlName="Mobile" [(ngModel)]="model.MobileNo">
+      <div class='error errors err-msg' *ngIf="form.controls['Mobile'].touched">
+        <div *ngIf="form.controls['Mobile'].errors?.required">Mobile is required.
+        </div>
+        <div *ngIf="form.controls['Mobile'].errors?.invalidNumber">Invalid Mobile No.</div>
     </div>
+    </div>
+
     <div class="mb-3">
       <label for="Username" class="form-label">Username</label>
       <input type="text" class="form-control" id="Username" formControlName="Username" [(ngModel)]="model.Username">
+      <div class='error errors err-msg' *ngIf="form.controls['Username'].touched">
+        <div *ngIf="form.controls['Username'].errors?.required">Username is
+            required.
+        </div>
+        <div *ngIf="form.controls['Username'].errors?.invalidUserName">Username is
+            invalid. Username must contain atleast 8 character.Special character only _ and - allowed.
+        </div>
+
+    </div>
     </div>
     <div class="mb-3">
       <label for="Password" class="form-label">Password</label>
       <input type="password" class="form-control" id="Password" formControlName="Password" [(ngModel)]="model.Password">
+      <div class='error errors err-msg' *ngIf="form.controls['Password'].touched">
+        <div *ngIf="form.controls['Password'].errors?.required">Password is
+            required.
+        </div>
+
+        <div *ngIf="form.controls['Password'].errors?.wrongformat">Passwords must
+            contain at least 1 Uppercase Alphabet, 1 Lowercase Alphabet, 1 Number
+            and 1 Special Character and 8 character.</div>
+    </div>
+    </div>
+    <div class="mb-3">
+      <label for="Confirmpassword" class="form-label">Confirm password</label>
+      <input type="text" class="form-control" id="Confirmpassword" formControlName="Confirmpassword">
+      <div class='error errors err-msg'
+      *ngIf="form.controls['Confirmpassword'].touched">
+      <div *ngIf="form.errors?.mismatchedPasswords">Passwords do not match.
+      </div>
+  </div>
+
     </div>
 
-    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+    <button type="submit"  [disabled]="!form.valid || IsLoading" class="btn btn-primary" (click)="onSubmit()">Submit</button>
   </form>
+
 </div>
+<div class="successText text-center" *ngIf="IsAdded">Added Successfully</div>

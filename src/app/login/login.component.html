@@ -1,1 +1,27 @@
-<p>login works!</p>
+<h1 class="text-center">Log In</h1>
+<div class="form-container" >
+  <form [formGroup]="form" novalidate>
+    <div class="mb-3">
+      <label for="name" class="form-label">Username</label>
+      <input type="text" class="form-control" id="Username" formControlName="Username" [(ngModel)]="model.Username">
+      <div class='error errors err-msg' *ngIf="form.controls['Username'].touched">
+        <div *ngIf="form.controls['Username'].errors?.required">Username is required.
+        </div>
+
+    </div>
+    </div>
+    <div class="mb-3">
+      <label for="Password" class="form-label">Password</label>
+      <input type="password" class="form-control"  id="Password" formControlName="Password" [(ngModel)]="model.Password">
+      <div class='error errors err-msg' *ngIf="form.controls['Password'].touched">
+        <div *ngIf="form.controls['Password'].errors?.required">Password is required.
+        </div>
+
+    </div>
+    </div>
+
+
+    <button type="submit"  [disabled]="!form.valid || IsLoading" class="btn btn-primary" (click)="onLogin()">Submit</button>
+  </form>
+  <div class="text-center alert" *ngIf="IsFailed">{{message}}</div>
+</div>

@@ -8,6 +8,63 @@
     padding: 20px;
     border: 1px solid #b965f9;
     position: absolute;
-    top: 50%;
+
     left: 40%;
 }
+.err-msg{
+  color:#f00
+}
+.successText{
+  color: #0f0;
+}
+button.btn[disabled]{
+  opacity: 0.5;
+}
+input.ng-pristine, select.ng-pristine,textarea.ng-pristine  {
+  border:1px solid yellow;
+}
+
+select.ng-pristine.ng-invalid,input.ng-pristine.ng-invalid,textarea.ng-pristine.ng-invalid{
+  border:1px solid yellow;
+}
+
+input.ng-dirty.ng-invalid ,input.ng-touched.ng-invalid ,select.ng-touched.ng-invalid,textarea.ng-touched.ng-invalid {
+  border:1px solid red;
+}
+input.ng-pending.ng-invalid {
+  border:1px solid rgb(255, 115, 0);
+}
+
+input.ng-touched.ng-valid ,select.ng-touched.ng-valid,textarea.ng-touched.ng-valid  {
+  border:1px solid rgb(9, 241, 9);
+}
+.invalid-Div{
+  border:1px solid #f00;
+}
+.valid-Div{
+border:1px solid #0f0;
+}
+.alert{
+  font-size:20px;
+  color: #f00;
+}
+.pull-right{
+  float:right;
+}
+input[type=radio]{
+  margin-right:10px;
+}
+
+thead{
+  th{
+  background-color: #0f0 !important;
+}
+}
+.nav-item{
+  a{
+    font-size: 20px;
+    color: #fff !important;
+    font-weight: bold;
+  }
+}
+

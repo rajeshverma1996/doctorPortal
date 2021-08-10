@@ -1,0 +1,146 @@
+<div class="row">
+  <div class="col-sm-4"><h2>All Patient Details </h2></div>
+
+  <div class="col-sm-4">
+    <div class="pull-right"><span><button class="btn btn-primary" (click)="SearchPatient()">Search Patient</button></span></div>
+    <div class="pull-right">
+      <span> <input class="form-control " type="text" [(ngModel)]="searchText" (keyup)="SearchPatient()"></span>
+
+     </div>
+
+  </div>
+  <div class="col-sm-4">
+    <div class="pull-right">
+
+      <button type="button" class="btn btn-info "  data-bs-toggle="modal" data-bs-target="#exampleModal" #addPatientBtn>Add Patient</button>
+    </div>
+
+  </div>
+</div>
+<div class="row">
+<div class="text-center successText " *ngIf="IsAdded">{{message}}</div>
+
+<div class="row" *ngIf="filterPatients && filterPatients.length">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sr. No.</th>
+        <th scope="col">Name</th>
+        <th scope="col">Mobile No</th>
+        <th scope="col">Age</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Symptom</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patient of filterPatients; let i = index">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{patient.Name}}</td>
+        <td>{{patient.MobileNo}}</td>
+        <td>{{patient.Age}}</td>
+        <td>{{patient.Gender}}</td>
+        <td>{{patient.Symptom}}</td>
+        <td><button type="button" class="btn btn-primary" (click)="onClickEdit(patient)">Edit</button></td>
+
+        <td><button type="button" class="btn btn-danger" (click)="onClickDelete(patient.id)">Delete</button></td>
+        <td><button type="button" class="btn btn-primary" (click)="onClickDetails(patient.id)">Details</button></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+<div class="alert text-center" *ngIf="!(filterPatients && filterPatients.length)">No Data Available</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><span *ngIf="!IsUpdate">Add</span><span *ngIf="IsUpdate">Update</span> Patient</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"  (click)="resetForm()" aria-label="Close" #closeBtn></button>
+      </div>
+      <div class="modal-body">
+        <div class=""  *ngIf="!IsAdded">
+        <form [formGroup]="form" novalidate>
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" formControlName="Name" [(ngModel)]="model.Name">
+            <div class='error errors err-msg' *ngIf="form.controls['Name'].touched">
+              <div *ngIf="form.controls['Name'].errors?.required">Name is required.
+              </div>
+
+          </div>
+          </div>
+          <div class="mb-3">
+            <label for="MobileNo" class="form-label">Mobile No</label>
+            <input type="text" class="form-control" maxlength="10" id="MobileNo" formControlName="Mobile" [(ngModel)]="model.MobileNo">
+            <div class='error errors err-msg' *ngIf="form.controls['Mobile'].touched">
+              <div *ngIf="form.controls['Mobile'].errors?.required">Mobile is required.
+              </div>
+              <div *ngIf="form.controls['Mobile'].errors?.invalidNumber">Invalid Mobile No.</div>
+          </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="Age" class="form-label">Age</label>
+            <input type="text" class="form-control" id="Age" formControlName="Age" [(ngModel)]="model.Age">
+            <div class='error errors err-msg' *ngIf="form.controls['Age'].touched">
+              <div *ngIf="form.controls['Age'].errors?.required">Age is
+                  required.
+              </div>
+
+
+          </div>
+          </div>
+          <div class="mb-3">
+            <label for="Gender" class="form-label">Gender</label>
+
+            <div>
+              <input id="male" type="radio" formControlName="gender" class="custom-control-input" value="male" name="gender" [(ngModel)]="model.Gender">
+              <label class="custom-control-label" for="male">Male</label>
+           </div>
+
+           <div>
+              <input id="female" type="radio" formControlName="gender" class="custom-control-input" value="female" name="gender" [(ngModel)]="model.Gender">
+              <label class="custom-control-label" for="female">Female</label>
+           </div>
+           <div>
+            <input id="other" type="radio" formControlName="gender" class="custom-control-input" value="other" name="gender" [(ngModel)]="model.Gender">
+            <label class="custom-control-label" for="female">Other</label>
+         </div>
+
+          </div>
+          <div class="mb-3">
+            <label for="Symptom" class="form-label">Symptom</label>
+            <input type="text" class="form-control" id="Symptom" formControlName="Symptom" [(ngModel)]="model.Symptom">
+            <div class='error errors err-msg' *ngIf="form.controls['Symptom'].touched">
+              <div *ngIf="form.controls['Symptom'].errors?.required">Symptom is
+                  required.
+              </div>
+
+
+          </div>
+          </div>
+
+        </form>
+
+      </div>
+      </div>
+      <div class="modal-footer">
+
+      <div class="" *ngIf="!IsUpdate">  <button type="button" class="btn btn-primary"  [disabled]="!form.valid || IsLoading"   (click)="onSubmit()">Add Patient</button></div>
+      <div class="" *ngIf="IsUpdate"> <button type="button" class="btn btn-primary"  [disabled]="!form.valid || IsLoading"   (click)="onUpdate()">Update Patient</button></div>
+
+      </div>
+      <div class="text-center error errors err-msg" *ngIf="!IsAdded && message">{{message}}</div>
+
+    </div>
+  </div>
+</div>
+</div>
+

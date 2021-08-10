@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './layout/admin.component';
 import { PublicComponent } from './layout/public.compont';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuard } from './_guard/auth.guard';
 
 const appRoutes: Routes = [
@@ -30,6 +31,8 @@ const appRoutes: Routes = [
                   )
           }]
   },
+  {path: '404', component: PageNotFoundComponent},
+  {path: '**', redirectTo: '/404'}
 
 
 ];
