@@ -26,7 +26,7 @@ export class SharedServices {
   }
 
 
-  AddDoctor(data: Doctor): Observable<any> {
+  addDoctor(data: Doctor): Observable<any> {
     // const body = JSON.stringify(data);
     return this._httpClient.post(this.baseServiceApi + this.addGetDoctorUrl, data) // ...using post request
       .pipe(
@@ -42,7 +42,7 @@ export class SharedServices {
     return this._httpClient.get(this.baseServiceApi + this.addGetPatientUrl+'/'+id)
       .pipe(map(res => res))
   }
-  AddPatient(data: Patient): Observable<any> {
+  addPatient(data: Patient): Observable<any> {
     // const body = JSON.stringify(data);
     return this._httpClient.post(this.baseServiceApi + this.addGetPatientUrl, data) // ...using post request
       .pipe(
@@ -50,11 +50,11 @@ export class SharedServices {
       )
   }
 
-  DeletePatient(id:number){
+  deletePatient(id:number){
     return this._httpClient.delete(this.baseServiceApi + this.addGetPatientUrl+'/'+id)
       .pipe(map(res => res))
   }
-  UpdatePatient(data: Patient): Observable<any> {
+  updatePatient(data: Patient): Observable<any> {
     // const body = JSON.stringify(data);
     return this._httpClient.put(this.baseServiceApi + this.addGetPatientUrl+ '/'+data.id, data) // ...using post request
       .pipe(

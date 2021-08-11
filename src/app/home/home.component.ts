@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
     this.IsLoading = true;
     console.log(this.model);
 
-    this.sharedService.AddDoctor(this.model).subscribe(data =>{
+    this.sharedService.addDoctor(this.model).subscribe(data =>{
       this.IsAdded = true;
     setTimeout(()=>{
       this.router.navigate(['/login'], { relativeTo: this.activedRouter });

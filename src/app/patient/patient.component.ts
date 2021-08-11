@@ -82,7 +82,7 @@ patienDetails:PatientDetails[]=[]
     this.IsLoading = true;
     console.log(this.model);
 
-    this.sharedService.AddPatient(this.model).subscribe(data =>{
+    this.sharedService.addPatient(this.model).subscribe(data =>{
       this.getAllPatient();
       this.IsAdded = true;
       this.message = Message.Success_Msg
@@ -114,7 +114,7 @@ patienDetails:PatientDetails[]=[]
   }
   onClickDelete(id:number){
     if (confirm(Message.Delete_Confirm_Msg)) {
-      this.sharedService.DeletePatient(id).subscribe(
+      this.sharedService.deletePatient(id).subscribe(
         data =>{
           this.IsAdded = true;
           this.message = Message.Delete_Msg
@@ -147,7 +147,7 @@ patienDetails:PatientDetails[]=[]
     this.IsLoading = true;
     console.log(this.model);
 
-    this.sharedService.UpdatePatient(this.model).subscribe(data =>{
+    this.sharedService.updatePatient(this.model).subscribe(data =>{
       this.getAllPatient();
       this.IsAdded = true;
       this.message = Message.Update_Msg
