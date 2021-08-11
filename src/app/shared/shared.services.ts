@@ -8,7 +8,7 @@ import { Patient } from "../model/patient";
 
 @Injectable()
 export class SharedServices {
-  baseApi = ServiceBaseApi;
+  baseApi = ServiceBaseApi.BaseApi;
 
   public baseServiceApi = this.baseApi + '/';
   private addGetDoctorUrl = Key_Name.doctors;
@@ -20,6 +20,7 @@ export class SharedServices {
   ) { }
 
   getDoctors(): Observable<any> {
+    debugger
     return this._httpClient.get(this.baseServiceApi + this.addGetDoctorUrl)
       .pipe(map(res => res))
   }
